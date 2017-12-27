@@ -16,4 +16,4 @@ Antibiotic Gene Reference Database:
 [NCBI AMR DBS](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA313047)
 
 
- **Download protein database from NCBI: ```esearch -db bioproject -query "PRJNA313047" | elink -target protein|efetch -format fasta > ncbi_antibiotic_database.faa```***
+ **Download protein database from NCBI: ```esearch -db bioproject -query "PRJNA313047" | elink -target protein|efetch -format fasta > ncbi_antibiotic_database.faa```**
