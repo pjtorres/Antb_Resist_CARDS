@@ -10,7 +10,9 @@ Quick look at all uniq hits for bacteria
 ```cat  {out.txt} | cut -d'[' -f2 | sort | uniq```
 
 Antibiotic Gene Reference Database:
+
 [CARD](https://card.mcmaster.ca/)
+
 [NCBI AMR DBS](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA313047)
 
 
