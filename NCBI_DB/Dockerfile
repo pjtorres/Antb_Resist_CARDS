@@ -15,11 +15,3 @@ RUN wget http://github.com/bbuchfink/diamond/releases/download/v0.9.15/diamond-l
 
 
 RUN chmod +x /usr/bin/diamond
-
-CMD /usr/bin/diamond blastx \
--d $DATABASE \
--q $RUN_FOLDER \
--o $OUTPUT_FOLDER
-
-# Helpful tips and commands
-CMD echo 'Your current folder should contain at least 2 files. 1) Docker file and 2) Your Antimicrobial Resistant Gene database already built in diamond (NCBIATB.dmnd).The following script will help you analyze your data: diamond blastx -d NCBIATB.dmnd --outfmt 6 stitle -q query.fasta -o output.txt --max-target-seqs 1 -e 0.00000000000000000001 --id 80 --query-cover 90'
