@@ -10,11 +10,13 @@ import pandas as pd
 #---------- Split to count the number of hits given by a blast output and make an OTU style format------
 parser=argparse.ArgumentParser(description="Script will sum up your blast text output into an otu style format. For this script to work output you must output your blastn data like this '-outfmt 6 stitle'. Also make sure all your blast outputs you want to summarize are in their own directory")
 parser.add_argument('-d','--dir', help='All blast.txt files should be in one directory. Add directory here or leave blank for current working firectory', required=False)
-parser.add_argument('-o','--out', help='Name of summary ouput text file', required=True)#require later
+parser.add_argument('-o','--out', help='Name of summary ouput text file', required=True)
+parser.add_argument('-dbtype','--dbtype', help='type of database used. Could be atibiotic (atb) or virulence factor (vf)', required=True)
 
 args=parser.parse_args()
 directory_i=str(args.dir)
 o_file=str(args.out)
+dbtype=str(args.dbtype)
 
 #----- check to see if you input you input the directory where files are kept--------
 if args.dir is None:
