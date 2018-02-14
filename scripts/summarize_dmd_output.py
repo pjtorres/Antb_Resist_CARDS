@@ -62,15 +62,27 @@ for txt in  F:
                 taxa[taxName]=[0]*len(F)# Make a list for to keep the Taxa abundace for each file in directory or length of F.
             else:pass
             taxa[taxName][F.index(txt)]+=1
-            
+
 print ("There are a total of " +str(len(taxa)) +"  genes")
 
 #-----------------Create new output file and write in abundance
 o=open(o_file+'.txt',"w+")
 o.write("Gene\t"+"Bacteria\t"+"\t".join(header)+"\n")
 for i in taxa:
-    Gene,bacteria=i.split('[')
-    o.write(Gene + '\t'+ '['+bacteria+"\t"+"\t".join([str(xx) for xx in taxa[i]])+"\n")
+    try:
+        Gene,bacteria=i.split('[')
+        o.write(Gene + '\t'+ '['+bacteria+"\t"+"\t".join([str(xx) for xx in taxa[i]])+"\n")
+    except:
+        spl=i.split('[')
+        if len(spl)>= 2:
+            Gene=spl[0]
+            bacteria=spl[2]
+            o.write(Gene + '\t'+ '['+bacteria+"\t"+"\t".join([str(xx) for xx in taxa[i]])+"\n")
+        else:
+            Gene=spl[0]
+            bacteria=""
+            o.write(Gene + '\t'+ '['+bacteria+"\t"+"\t".join([str(xx) for xx in taxa[i]])+"\n")
+
 o.close()
 df=pandas.read_table(o_file+'.txt')
 os.remove(o_file+'.txt')
