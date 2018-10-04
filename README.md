@@ -14,6 +14,13 @@ The following is an example of how I typically run my command.
 Quick look at all uniqe hits for bacteria
 ```cat  {out.txt} | cut -d'[' -f2 | sort | uniq```
 
+## DIAMOND with docker
+### Build docker
+```bash
+sudo docker build -t dmd NCBI_DB/
+
+docker run -v `pwd`:`pwd` -w `pwd` dmd diamond blastx -d NCBI_DB/NCBIATB.dmnd -q NCBI_DB/practice_insert.fa -o matches.m8
+```
 Antibiotic Gene Reference Database:
 
 [CARD](https://card.mcmaster.ca/)
